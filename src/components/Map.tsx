@@ -4,7 +4,7 @@ import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 export default function Map() {
     const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
     const { isLoaded } = useLoadScript({ 
-        googleMapsApiKey: '',
+        googleMapsApiKey: `${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`,
         libraries: ['places']
     });
     
@@ -17,7 +17,7 @@ export default function Map() {
             <GoogleMap 
                 zoom={10} 
                 center={center} 
-                mapContainerClassName="map-container" 
+                mapContainerClassName="map-container"
             />
         </>
     );
